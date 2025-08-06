@@ -1,22 +1,29 @@
-local success1, err1 = pcall(function()
-    loadstring(
-        game:HttpGet(
-            'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/Neig.lua'
-        )
-    )()
-end)
+local currentGameId = tostring(game.PlaceId)
 
-local success2, err2 = pcall(function()
+if currentGameId == '14236925335' or currentGameId == '12699642568' then
+    pcall(function()
+        loadstring(
+            game:HttpGet(
+                'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/Neig.lua'
+            )
+        )()
+    end)
+end
+
+if currentGameId == '88728793053496' then
+    pcall(function()
+        loadstring(
+            game:HttpGet(
+                'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/BuildCar.lua'
+            )
+        )()
+    end)
+end
+
+pcall(function()
     loadstring(
         game:HttpGet(
             'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/GG.lua'
         )
     )()
 end)
-
-if not success1 then
-    warn('Neig.lua failed: ' .. err1)
-end
-if not success2 then
-    warn('GG.lua failed: ' .. err2)
-end
