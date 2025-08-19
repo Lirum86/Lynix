@@ -1,20 +1,17 @@
 local currentGameId = tostring(game.PlaceId)
 
-if currentGameId == '14236925335' or currentGameId == '12699642568' or currentGameId == '136162036182779' then
-    pcall(function()
-        loadstring(
-            game:HttpGet(
-                'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/Neig.lua'
-            )
-        )()
-    end)
-end
+local gameScripts = {
+    ['14236925335'] = 'Neig.lua',
+    ['12699642568'] = 'Neig.lua', 
+    ['136162036182779'] = 'Neig.lua',
+    ['88728793053496'] = 'BuildCar.lua'
+}
 
-if currentGameId == '88728793053496' then
+if gameScripts[currentGameId] then
     pcall(function()
         loadstring(
             game:HttpGet(
-                'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/BuildCar.lua'
+                'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/' .. gameScripts[currentGameId]
             )
         )()
     end)
