@@ -1,6 +1,6 @@
 local currentGameId = tostring(game.PlaceId)
 
-if currentGameId == '14236925335' or currentGameId == '12699642568' then
+if currentGameId == '14236925335' or currentGameId == '12699642568' or currentGameId == '136162036182779' then
     pcall(function()
         loadstring(
             game:HttpGet(
