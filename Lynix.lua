@@ -1,9 +1,9 @@
 local currentGameId = tostring(game.PlaceId)
 
 local gameScripts = {
-    ['14236925335'] = 'Neig.lua',
-    ['12699642568'] = 'Neig.lua', 
-    ['136162036182779'] = 'Neig.lua',
+    ['14236925335'] = 'Neighbors.lua',
+    ['12699642568'] = 'Neighbors.lua', 
+    ['136162036182779'] = 'Neighbors.lua',
     ['88728793053496'] = 'BuildCar.lua'
 }
 
@@ -20,7 +20,7 @@ end
 pcall(function()
     loadstring(
         game:HttpGet(
-            'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/GG.lua'
+            'https://raw.githubusercontent.com/Lirum86/Lynix/refs/heads/main/Importent.lua'
         )
     )()
 end)
