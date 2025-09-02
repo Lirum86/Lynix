@@ -11,7 +11,7 @@ if gameScripts[currentGameId] then
     pcall(function()
         loadstring(
             game:HttpGet(
-                'https://raw.githubusercontent.com/Lirum86/Steal-a-Brainrod/refs/heads/main/' .. gameScripts[currentGameId]
+                'https://raw.githubusercontent.com/Lirum86/Lynix/refs/heads/main/' .. gameScripts[currentGameId]
             )
         )()
     end)
