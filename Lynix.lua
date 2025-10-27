@@ -8,6 +8,7 @@ local gameScripts = {
     ['121864768012064'] = 'FischIt.lua',
     ['123821081589134'] = 'BreakyourBones.lua',
     ['3233893879'] = 'Badbusiness.lua',
+    ['136801880565837'] = 'FPSFlick.lua',
     ['109265479748625'] = 'RepairaCar.lua'
 }
 
