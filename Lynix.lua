@@ -9,7 +9,7 @@ local gameScripts = {
     ['123821081589134'] = 'BreakyourBones.lua',
     ['3233893879'] = 'Badbusiness.lua',
     ['136801880565837'] = 'FPSFlick.lua',
-    ['109265479748625'] = 'RepairaCar.lua'
+    ['109265479748625'] = 'RepairaCar.lua',  -- Komma hinzugefügt
     ['127822680964493'] = 'PrisonLiftClash.lua'
 }
 
