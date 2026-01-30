@@ -10,7 +10,8 @@ local gameScripts = {
     ['3233893879'] = 'Badbusiness.lua',
     ['136801880565837'] = 'FPSFlick.lua',
     ['109265479748625'] = 'RepairaCar.lua',
-    ['127822680964493'] = 'PrisonLiftClash.lua'
+    ['127822680964493'] = 'PrisonLiftClash.lua',
+    ['77499336428083'] = 'DrawARaft.lua'
 }
 
 if gameScripts[currentGameId] then
