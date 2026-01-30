@@ -1,4 +1,5 @@
 local currentGameId = tostring(game.PlaceId)
+local currentOwnerId = tostring(game.CreatorId)
 
 local gameScripts = {
     ['14236925335'] = 'Neighbors.lua',
@@ -16,11 +17,17 @@ local gameScripts = {
     ['96469185605358'] = 'AgeEvolutionTycoon.lua'
 }
 
-if gameScripts[currentGameId] then
+local ownerScripts = {
+    ['15109848'] = 'Neighbors.lua'
+}
+
+local scriptToLoad = gameScripts[currentGameId] or ownerScripts[currentOwnerId]
+
+if scriptToLoad then
     pcall(function()
         loadstring(
             game:HttpGet(
-                'https://raw.githubusercontent.com/Lirum86/Lynix/refs/heads/main/' .. gameScripts[currentGameId]
+                'https://raw.githubusercontent.com/Lirum86/Lynix/refs/heads/main/' .. scriptToLoad
             )
         )()
     end)
