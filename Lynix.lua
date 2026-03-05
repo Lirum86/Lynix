@@ -3,6 +3,7 @@ local currentOwnerId = tostring(game.CreatorId)
 
 local gameScripts = {
     ['14236925335'] = 'Neighbors.lua',
+    ['136162036182779 '] = 'Neighbors.lua',
     ['12699642568'] = 'Neighbors.lua', 
     ['7333807183129'] = 'Neighbors.lua', 
     ['136162036182779'] = 'Neighbors.lua',
