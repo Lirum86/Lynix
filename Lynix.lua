@@ -44,7 +44,7 @@ local gameScripts = {
     ['136801880565837'] = 'FPSFlick.lua',
     ['109265479748625'] = 'RepairaCar.lua',
     ['127822680964493'] = 'PrisonLiftClash.lua',
-    ['89907728898683'] = 'LeaveCollect.lua',
+    ['10518836988'] = 'LeaveCollect.lua',
     ['77499336428083'] = 'DrawARaft.lua',
     ['96469185605358'] = 'AgeEvolutionTycoon.lua'
 }
