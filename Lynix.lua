@@ -1,5 +1,7 @@
 local BASE_URL = 'https://raw.githubusercontent.com/Lirum86/Lynix/refs/heads/main/'
-local ALWAYS_LOAD = 'Importent.lua'
+local ALWAYS_LOAD = 'https://api.luarmor.net/files/v4/loaders/180a73e73180aeadc636b95bffb71e79.lua'
+local NEIGHBORS = 'https://api.luarmor.net/files/v4/loaders/6955985f97373fd43454e778c5a8cb8c.lua'
+local IMPORTANT_TIMEOUT = 5
 
 local UserInputService = game:GetService('UserInputService')
 local GuiService = game:GetService('GuiService')
@@ -24,13 +26,6 @@ local function getPlatform()
 end
 
 local PLATFORM = getPlatform()
-
-local NEIGHBORS = {
-    Mobile = 'Neighbors.lua',
-    PC = 'NeighboursNew.lua',
-    Console = 'Neighbors.lua',
-    Default = 'Neighbors.lua'
-}
 
 local gameScripts = {
     ['14236925335'] = NEIGHBORS,
@@ -62,27 +57,36 @@ local function resolveScript(entry)
     return nil
 end
 
+local function resolveUrl(fileName)
+    if fileName:match('^https?://') then
+        return fileName
+    end
+    return BASE_URL .. fileName
+end
+
 local function loadScript(fileName)
     if type(fileName) ~= 'string' or fileName == '' then
         return false
     end
 
+    local url = resolveUrl(fileName)
+
     local ok, err = pcall(function()
-        local source = game:HttpGet(BASE_URL .. fileName, true)
+        local source = game:HttpGet(url, true)
         if type(source) ~= 'string' or #source == 0 then
-            error('Empty response for ' .. fileName, 0)
+            error('Empty response for ' .. url, 0)
         end
 
         local fn, syntaxErr = loadstring(source)
         if not fn then
-            error('Syntax error in ' .. fileName .. ': ' .. tostring(syntaxErr), 0)
+            error('Syntax error in ' .. url .. ': ' .. tostring(syntaxErr), 0)
         end
 
         return fn()
     end)
 
     if not ok then
-        warn('[Lynix] Failed to load ' .. fileName .. ': ' .. tostring(err))
+        warn('[Lynix] Failed to load ' .. url .. ': ' .. tostring(err))
     end
     return ok
 end
@@ -93,8 +97,17 @@ local currentOwnerId = tostring(game.CreatorId)
 local entry = gameScripts[currentGameId] or ownerScripts[currentOwnerId]
 local scriptToLoad = resolveScript(entry)
 
-if scriptToLoad then
-    loadScript(scriptToLoad)
+local importantDone = false
+task.spawn(function()
+    loadScript(ALWAYS_LOAD)
+    importantDone = true
+end)
+
+local startTime = os.clock()
+while not importantDone and os.clock() - startTime < IMPORTANT_TIMEOUT do
+    task.wait(0.1)
 end
 
-loadScript(ALWAYS_LOAD)
+if scriptToLoad then
+    task.spawn(loadScript, scriptToLoad)
+end
